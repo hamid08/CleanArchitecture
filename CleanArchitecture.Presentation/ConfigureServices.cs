@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using CleanArchitecture.Presentation.HealthChecks;
+using Microsoft.OpenApi.Models;
 namespace CleanArchitecture.Presentation;
 
 public static class ConfigureServices
@@ -72,6 +73,7 @@ public static class ConfigureServices
         });
 
         #endregion
+
 
         return services;
     }

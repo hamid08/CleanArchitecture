@@ -30,7 +30,7 @@ public class CatchExceptionFilterAttribute : ExceptionFilterAttribute
     {
         var exception = (ValidationException)context.Exception;
 
-        var details = new ValidationProblemDetails(exception.Errors)
+        var details = new ValidationProblemDetails((IDictionary<string, string[]>)exception.Errors)
         {
             Type = string.Empty
         };

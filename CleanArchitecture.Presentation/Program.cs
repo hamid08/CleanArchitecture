@@ -1,6 +1,10 @@
 using CleanArchitecture.Presentation;
+using CleanArchitecture.Presentation.HealthChecks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+
+using HealthChecks.UI.Core;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,17 @@ builder.Services.RegisterApplicationServices()
                 .RegisterPersistenceServices(builder.Configuration)
                 .RegisterPresentationServices();
 
+builder.Services.AddHealthChecks();
+
+builder.Services.AddHealthChecks()
+         .AddSqlServer(
+    builder.Configuration.GetConnectionString("ApplicationDbContext")
+    , tags: new[] { "database" }
+    )
+         .AddCheck<MyHealthCheck>("MyHealthCheck", tags: new[] { "custom" });
+         
+
+builder.Services.AddHealthChecksUI().AddInMemoryStorage();
 
 var app = builder.Build();
 
@@ -36,7 +51,17 @@ app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CleanArchit
 
 app.UseCors("CorsPolicy");
 
+app.UseHealthChecks("/healthcheck", new HealthCheckOptions
+{
+    Predicate = _ => true,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse //nuget: AspNetCore.HealthChecks.UI.Client
+});
 
-
+//nuget: AspNetCore.HealthChecks.UI
+app.UseHealthChecksUI(options =>
+{
+    options.UIPath = "/healthchecks-ui";
+    options.ApiPath = "/health-ui-api";
+});
 
 app.Run();
