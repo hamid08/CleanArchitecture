@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Domain.Entities;
+﻿using CleanArchitecture.Application.Common.MediatR;
+using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.Features.Users.Commands.CreateUser;
 

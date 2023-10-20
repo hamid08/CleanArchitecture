@@ -1,4 +1,6 @@
-﻿namespace CleanArchitecture.Application.Features.Users.Commands.CreateUser;
+﻿using CleanArchitecture.Application.Common.MediatR.Contracts;
+
+namespace CleanArchitecture.Application.Features.Users.Commands.CreateUser;
 
 public record CreateUserCommand : IRequest<Guid>
 {

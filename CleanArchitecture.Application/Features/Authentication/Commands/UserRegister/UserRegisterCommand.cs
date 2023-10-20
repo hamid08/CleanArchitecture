@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Domain.Enums;
+﻿using CleanArchitecture.Application.Common.MediatR.Contracts;
+using CleanArchitecture.Domain.Enums;
 
 namespace CleanArchitecture.Application.Features.Authentication.Commands.UserRegister;
 

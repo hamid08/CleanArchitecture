@@ -1,5 +1,6 @@
 using CleanArchitecture.Presentation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.RegisterApplicationServices()
                 .RegisterInfrastructureServices()
                 .RegisterPersistenceServices(builder.Configuration)
                 .RegisterPresentationServices();
+
 
 var app = builder.Build();
 
@@ -28,6 +30,13 @@ using (var scop = app.Services.CreateScope())
 
 
 }
+
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CleanArchitecture v1"));
+
+app.UseCors("CorsPolicy");
+
+
 
 
 app.Run();

@@ -1,4 +1,4 @@
-﻿using ValidationException = CleanArchitecture.Application.Common.Exceptions.ValidationException;
+﻿using CleanArchitecture.Application.Common.MediatR;
 using FluentValidation;
 
 namespace CleanArchitecture.Application.Common.Behaviours;
@@ -14,7 +14,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
         _validators = validators;
     }
 
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken  = default)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken = default)
     {
         if (_validators.Any())
         {

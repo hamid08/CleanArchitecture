@@ -1,4 +1,6 @@
-﻿namespace CleanArchitecture.Application.Features.Authentication.Queries.Login;
+﻿using CleanArchitecture.Application.Common.MediatR.Contracts;
+
+namespace CleanArchitecture.Application.Features.Authentication.Queries.Login;
 
 public class LoginQuery : IRequest<UserDto>
 {

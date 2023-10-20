@@ -1,3 +1,3 @@
 ﻿global using CleanArchitecture.Application.Common;
-global using MediatR;
+global using CleanArchitecture.Application.Common.MediatR;
 global using Microsoft.EntityFrameworkCore;

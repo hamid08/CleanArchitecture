@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CleanArchitecture.Application.Common.MediatR.MicrosoftExtensionsDI;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace CleanArchitecture.Infrastructure;
@@ -13,6 +14,7 @@ public static class ConfigureServices
         {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
+
         return services;
     }
 }

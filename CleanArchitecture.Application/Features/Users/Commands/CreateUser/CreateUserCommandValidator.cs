@@ -12,6 +12,6 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
 
         RuleFor(u => u.LastName)
                .NotEmpty().WithMessage("this field is required")
-               .MaximumLength(50).WithMessage("last name must be less than 50");
+               .MaximumLength(50).WithMessage("نام خانوادگی نمی تواند بزرگتر از 50 کارکتر باشد");
     }
 }

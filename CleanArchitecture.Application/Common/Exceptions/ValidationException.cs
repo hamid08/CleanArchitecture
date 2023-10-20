@@ -1,22 +1,20 @@
 ﻿using FluentValidation.Results;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace CleanArchitecture.Application.Common.Exceptions;
-
-public class ValidationException : Exception
+namespace CleanArchitecture.Application.Common.Exceptions
 {
-    public ValidationException()
-        : base("One or more validation failures have occurred.")
+    public class ValidationException : ApplicationException
     {
-        Errors = new Dictionary<string, string[]>();
-    }
+        public List<string> Errors { get; set; } = new List<string>();
 
-    public ValidationException(IEnumerable<ValidationFailure> failures)
-        : this()
-    {
-        Errors = failures
-            .GroupBy(e => e.PropertyName, e => e.ErrorMessage)
-            .ToDictionary(failureGroup => failureGroup.Key, failureGroup => failureGroup.ToArray());
+        public ValidationException(ValidationResult validationResult)
+        {
+            foreach (var error in validationResult.Errors)
+            {
+                Errors.Add(error.ErrorMessage);
+            }
+        }
     }
-
-    public IDictionary<string, string[]> Errors { get; }
 }

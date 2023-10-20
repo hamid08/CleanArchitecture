@@ -1,5 +1,5 @@
-﻿using CleanArchitecture.Presentation.Filter;
-using MediatR;
+﻿using CleanArchitecture.Application.Common.MediatR;
+using CleanArchitecture.Presentation.Filter;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.Presentation.Controllers;
