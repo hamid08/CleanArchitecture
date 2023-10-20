@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Domain.Enums;
 
-namespace CleanArchitecture.Application.Authentication.Commands.UserRegister;
+namespace CleanArchitecture.Application.Features.Authentication.Commands.UserRegister;
 
 public record UserRegisterCommand : IRequest<Guid>
 {

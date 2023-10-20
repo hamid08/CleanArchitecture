@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Application.Authentication.Queries.Login;
+﻿namespace CleanArchitecture.Application.Features.Authentication.Queries.Login;
 
 public class LoginQuery : IRequest<UserDto>
 {

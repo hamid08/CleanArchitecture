@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CleanArchitecture.Application.Users.Queries.GetUser;
+namespace CleanArchitecture.Application.Features.Users.Queries.GetUser;
 
 public class GetUserQueryValidator : AbstractValidator<GetUserQuery>
 {

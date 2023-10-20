@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Application.Users.Queries.GetUser;
+﻿namespace CleanArchitecture.Application.Features.Users.Queries.GetUser;
 
 public class GetUserQueryHandler : IRequestHandler<GetUserQuery, GetUserDto>
 {

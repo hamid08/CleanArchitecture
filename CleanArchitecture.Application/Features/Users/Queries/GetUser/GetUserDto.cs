@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Domain.Enums;
 
-namespace CleanArchitecture.Application.Users.Queries.GetUser;
+namespace CleanArchitecture.Application.Features.Users.Queries.GetUser;
 
 public class GetUserDto
 {

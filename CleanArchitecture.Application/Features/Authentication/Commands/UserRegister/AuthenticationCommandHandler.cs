@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application.Authentication.Commands.UserRegister;
+namespace CleanArchitecture.Application.Features.Authentication.Commands.UserRegister;
 
 public class AuthenticationCommandHandler : IRequestHandler<UserRegisterCommand, Guid>
 {
@@ -9,7 +9,7 @@ public class AuthenticationCommandHandler : IRequestHandler<UserRegisterCommand,
     public AuthenticationCommandHandler(IApplicationUnitOfWork unitOfWork)
          => _uow = unitOfWork;
 
-    public async Task<Guid> Handle(UserRegisterCommand request, CancellationToken cancellationToken  = default)
+    public async Task<Guid> Handle(UserRegisterCommand request, CancellationToken cancellationToken = default)
     {
         var model = new User
         {

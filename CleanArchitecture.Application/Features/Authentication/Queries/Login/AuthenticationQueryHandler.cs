@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application.Authentication.Queries.Login;
+namespace CleanArchitecture.Application.Features.Authentication.Queries.Login;
 
 public class AuthenticationQueryHandler : IRequestHandler<LoginQuery, UserDto>
 {
@@ -9,7 +9,7 @@ public class AuthenticationQueryHandler : IRequestHandler<LoginQuery, UserDto>
     public AuthenticationQueryHandler(IApplicationUnitOfWork unitOfWork)
          => _uow = unitOfWork;
 
-    public async Task<UserDto> Handle(LoginQuery request, CancellationToken cancellationToken  = default)
+    public async Task<UserDto> Handle(LoginQuery request, CancellationToken cancellationToken = default)
     {
         var user = await _uow.Users.Where(x => x.UserName == request.UserName
                                              && x.Password == request.Password)
@@ -25,4 +25,3 @@ public class AuthenticationQueryHandler : IRequestHandler<LoginQuery, UserDto>
     }
 }
 
- 

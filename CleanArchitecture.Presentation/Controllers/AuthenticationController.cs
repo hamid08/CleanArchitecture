@@ -1,5 +1,5 @@
-﻿using CleanArchitecture.Application.Authentication.Commands.UserRegister;
-using CleanArchitecture.Application.Authentication.Queries.Login;
+﻿using CleanArchitecture.Application.Features.Authentication.Commands.UserRegister;
+using CleanArchitecture.Application.Features.Authentication.Queries.Login;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.Presentation.Controllers;

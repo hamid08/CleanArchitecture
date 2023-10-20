@@ -1,5 +1,5 @@
-﻿using CleanArchitecture.Application.Users.Commands.CreateUser;
-using CleanArchitecture.Application.Users.Queries.GetUser;
+﻿using CleanArchitecture.Application.Features.Users.Commands.CreateUser;
+using CleanArchitecture.Application.Features.Users.Queries.GetUser;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.Presentation.Controllers
